@@ -6,11 +6,8 @@ namespace PadawansTask5.Tests
     [TestFixture]
     public class HiddenTest
     {
-        [TestCase(arg: new[] { 1, 1, 0, 0, 0, 0, 0, 1, 1 }, ExpectedResult = "Yes")]
         [TestCase(arg: new[] { 1, 1, 0, 0, 0, 0, 1, 1 }, ExpectedResult = "Yes")]
         [TestCase(arg: new[] { 1, 1, 0, 0, 1, 0, 0, 1, 1 }, ExpectedResult = "Yes")]
-        [TestCase(arg: new[] { 1, 1, 0, 0, 0, 0, 0, 1, 1 }, ExpectedResult = "Yes")]
-        [TestCase(arg: new[] { 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1 }, ExpectedResult = "Yes")]
         [TestCase(arg: new[] { 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1 }, ExpectedResult = "Yes")]
         [TestCase(arg: new[] { 1, 1, 0, 0, 0, 0, 1, 1, 0 }, ExpectedResult = "No")]
         [TestCase(arg: new[] { 1, 0, 1, 1, 0, 0, 0, 0, 0 }, ExpectedResult = "No")]
