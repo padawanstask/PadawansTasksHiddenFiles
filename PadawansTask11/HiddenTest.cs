@@ -19,13 +19,13 @@ namespace PadawansTask11.Tests
             => ArrayExtensions.FindIndex(array, accuracy);
 
         [Test]
-        [Property("Mark", 2)]
+        [Property("Mark", 1)]
         public void FindIndexTest_ArrayIsNull_ThrowArgumentNullException()
             => Assert.Throws<ArgumentNullException>(() => ArrayExtensions.FindIndex(null, 0.0001),
                 "The array cannot be null.");
 
         [Test]
-        [Property("Mark", 2)]
+        [Property("Mark", 1)]
         public void FindIndexTest_ArrayIsEmpty_ThrowArgumentException()
             => Assert.Throws<ArgumentException>(() => ArrayExtensions.FindIndex(new double[] { }, 0.0001),
                 "The array cannot be empty.");
@@ -33,7 +33,7 @@ namespace PadawansTask11.Tests
         [TestCase(-1)]
         [TestCase(0)]
         [TestCase(1)]
-        [Property("Mark", 2)]
+        [Property("Mark", 1)]
         public void FindIndexTest_ArrayIsEmpty_ThrowArgumentOutOfRangeException(double accuracy)
             => Assert.Throws<ArgumentOutOfRangeException>(() => ArrayExtensions.FindIndex(new double[] { 1 }, accuracy),
                 "The accuracy cannot be less than zero or more than one.");
