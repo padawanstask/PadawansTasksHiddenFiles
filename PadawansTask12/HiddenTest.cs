@@ -54,6 +54,5 @@ namespace PadawansTask12.Tests
 
             return new string(chars.ToArray());
         }
-
     }
 }
