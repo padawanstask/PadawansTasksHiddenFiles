@@ -2,21 +2,45 @@ using System;
 using NUnit.Framework;
 using System.Linq;
 using static PadawansTask12.StringExtension;
+using System.Collections.Generic;
 
 namespace PadawansTask12.Tests
 {
     [TestFixture]
+    [Category("TryToHackHiddenTests")]
     public class HiddenTest
     {
-        [TestCase("abcde   fghijklmnopqrstuvwxyz abcdefghijklm  nopqrstuvwxyz abcdefghijklmnopqrstuvwxyz", false)]
-        [TestCase("abcdefghijklmnopqrstuvwxyz", true)]
-        [TestCase("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", true)]
-        [TestCase("1234567890", true)]
-        [TestCase("sdfghjkl;.,mnbvcxzwert6ytrewqazxcvbhjio098765432qwaszxcvbjk, xsdrtyui", false)]
-        [TestCase(@"1234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+=-|\~`?><,./ 	", true)]
-        public void AllCharactersAreUniqueTests(string source, bool result)
+        private const int CountASCIIChars = 128;
+
+        private static IEnumerable<TestCaseData> DataCases
         {
-            Assert.That(AllCharactersAreUnique(source) == result);
+            get
+            {
+                yield return new TestCaseData("abcde   fghijklmnopqrstuvwxyz abcdefghijklm  nopqrstuvwxyz abcdefghijklmnopqrstuvwxyz").Returns(false);
+                yield return new TestCaseData("abcdefghijklmnopqrstuvwxyz").Returns(true);
+                yield return new TestCaseData("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ").Returns(true);
+                yield return new TestCaseData("1234567890").Returns(true);
+                yield return new TestCaseData("sdfghjkl;.,mnbvcxzwert6ytrewqazxcvbhjio098765432qwaszxcvbjk, xsdrtyui").Returns(false);
+                yield return new TestCaseData(@"1234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+=-|\~`?><,./").Returns(true);
+
+            }
+        }
+
+        //[TestCase("abcde   fghijklmnopqrstuvwxyz abcdefghijklm  nopqrstuvwxyz abcdefghijklmnopqrstuvwxyz", false)]
+        //[TestCase("abcdefghijklmnopqrstuvwxyz", true)]
+        //[TestCase("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", true)]
+        //[TestCase("1234567890", true)]
+        //[TestCase("sdfghjkl;.,mnbvcxzwert6ytrewqazxcvbhjio098765432qwaszxcvbjk, xsdrtyui", false)]
+        //[TestCase(@"1234567890abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+=-|\~`?><,./ 	", true)]
+        //public void AllCharactersAreUniqueTests(string source, bool result)
+        //{
+        //    Assert.That(AllCharactersAreUnique(source) == result);
+        //}
+
+        [TestCaseSource(nameof(DataCases))]
+        public bool AllCharactersAreUniqueTests(string source)
+        {
+            return AllCharactersAreUnique(source);
         }
 
         [Test]
@@ -40,7 +64,7 @@ namespace PadawansTask12.Tests
         [Test]
         public void AllCharactersAreUnique_AlwaysFalse()
         {
-            string source = RandomString(128 * 2);
+            string source = RandomString(CountASCIIChars * 2);
             Assert.IsFalse(StringExtension.AllCharactersAreUnique(source));
         }
 
@@ -54,5 +78,6 @@ namespace PadawansTask12.Tests
 
             return new string(chars.ToArray());
         }
+
     }
 }
