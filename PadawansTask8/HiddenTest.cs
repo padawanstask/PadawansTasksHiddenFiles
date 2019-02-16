@@ -5,6 +5,7 @@ using NUnit.Framework;
 namespace PadawansTask8.Tests
 {
     [TestFixture]
+    [Category("TryToHackHiddenTests")]
     public class HiddenTest
     {
         private static IEnumerable<TestCaseData> DataCases
