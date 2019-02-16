@@ -5,6 +5,7 @@ using static PadawansTask2.ArithmeticSequence;
 namespace PadawansTask2.Tests
 {
     [TestFixture]
+    [Category("TryToHackHiddenTests")]
     public class HiddenTest
     {
         [TestCase(3, 2, 1, ExpectedResult = 3)]
