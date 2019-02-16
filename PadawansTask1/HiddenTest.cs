@@ -4,6 +4,7 @@ using NUnit.Framework;
 namespace PadawansTask1.Tests
 {
     [TestFixture]
+    [Category("TryToHackHiddenTests")]
     public class HiddenTest
     {
         [TestCase(1500, 5, 100, 5000, ExpectedResult = 15)]
