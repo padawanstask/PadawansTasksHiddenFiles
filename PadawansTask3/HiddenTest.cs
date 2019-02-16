@@ -5,6 +5,7 @@ using static PadawansTask3.IntegerExtensions;
 namespace PadawansTask3.Tests
 {
     [TestFixture]
+    [Category("TryToHackHiddenTests")]
     public class HiddenTest
     {
         //[TestCase(1, 1, ExpectedResult = 1)]
