@@ -5,6 +5,7 @@ using System.Collections.Generic;
 namespace PadawansTask7.Tests
 {
     [TestFixture]
+    [Category("TryToHackHiddenTests")]
     public class HiddenTest
     {
         private static IEnumerable<TestCaseData> DataCases
