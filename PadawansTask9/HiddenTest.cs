@@ -5,6 +5,7 @@ using System;
 namespace PadawansTask9.Tests
 {
     [TestFixture]
+    [Category("TryToHackHiddenTests")]
     public class HiddenTest
     {
 
